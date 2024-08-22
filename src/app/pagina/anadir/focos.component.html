@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="wood-tone-toolbar-top">
+    <ion-title>
+      Configuración IoT
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding wood-tone-content ">
+  <form>
+    <ion-input type="text" placeholder="focos" [(ngModel)]="focos" [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    <ion-button class="wood-tone-button" type="submit" (click)="setValue()">Enviar</ion-button>
+    <!--
+    <ion-input *ngIf="apareceFoco1" type="text" placeholder="Ip Foco 1" [(ngModel)]="ipFoco1"
+      [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    <ion-input *ngIf="apareceFoco2" type="text" placeholder="Ip Foco 2" [(ngModel)]="ipFoco2"
+      [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    <ion-button *ngIf="apareceBoton" class="wood-tone-button" type="submit" (click)="setIpValue()">Poner IP</ion-button>
+ -->
+  </form>
+  <!--
+  <div style="margin-bottom: 10px; margin-top: 10px">
+    <ion-toggle [(ngModel)]="activarAudio" (ionChange)="onToggleAudio($event)">
+      <ion-label>Activar Audio</ion-label>
+    </ion-toggle>
+    <form *ngIf="apareceBotonAudio">
+      <ion-input type="text" placeholder="Field del Audio" [(ngModel)]="fieldAudio"
+        [ngModelOptions]="{standalone: true}">
+      </ion-input>
+      <ion-button (click)="enviarFieldAudio()" class="wood-tone-button" type="submit" (click)="setIpValue()">Poner Field</ion-button>
+    </form>
+  </div>
+  <div><ion-toggle [(ngModel)]="activarMusica" (ionChange)="onToggleMusica($event)">
+      <ion-label>Activar Musica</ion-label>
+    </ion-toggle>
+  </div>
+-->
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar class="wood-tone-toolbar-bot" slot="bottom">
+        <ion-tab-button tab="notificaciones" routerLink="/notificaciones">
+          <ion-icon name="arrow-undo-outline" aria-hidden="true"></ion-icon>
+          <ion-label>Regresar</ion-label>
+        </ion-tab-button>
+
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

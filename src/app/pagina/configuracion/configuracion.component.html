@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="wood-tone-toolbar-top">
+    <ion-title>
+      Configuración ThingSpeak
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding wood-tone-content ">
+  <form>
+    <ion-input type="text" placeholder="usuario" [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    <ion-input type="text" placeholder="contraseña" [(ngModel)]="contrasena" [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    <ion-input type="text" placeholder="canal" [(ngModel)]="canal" [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    <!--
+    <ion-input type="text" placeholder="apiKey" [(ngModel)]="apiKey" [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    -->
+    <ion-button class="wood-tone-button" type="submit" (click)="setValue()">Enviar</ion-button>
+
+    <ion-input type="text" placeholder="Field" [(ngModel)]="fieldNoti"
+      [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    <!--
+    <ion-input type="text" *ngIf="apareceFieldFoco1" placeholder="Field Foco 1" [(ngModel)]="fieldFoco1"
+      [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    <ion-input type="text" *ngIf="apareceFieldFoco2" placeholder="Field Foco 2" [(ngModel)]="fieldFoco2"
+      [ngModelOptions]="{standalone: true}">
+    </ion-input>
+    -->
+    <ion-button class="wood-tone-button" type="submit" (click)="setValueFields()">Enviar Field</ion-button>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar class="wood-tone-toolbar-bot" slot="bottom">
+        <ion-tab-button tab="notificaciones" routerLink="/notificaciones">
+          <ion-icon name="arrow-undo-outline" aria-hidden="true"></ion-icon>
+          <ion-label>Regresar</ion-label>
+        </ion-tab-button>
+
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

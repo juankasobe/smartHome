@@ -1,0 +1,116 @@
+.small-image {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    /* Ajusta el ancho al 100% del contenedor padre */
+    height: 60px;
+    width: 85px;
+    /* Margen superior de 10 píxeles */
+    margin-top: 15px;
+    object-fit: contain;
+  }
+  .small-image-ico {  
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(0, -50%);
+    width: 35px;
+    height: 35px;
+
+  }
+
+
+ion-content.background-image {
+    --background: src="assets/imagenes/sala.jpg" no-repeat center center / cover;
+}
+
+.wood-tone-content {
+    --background: #b691ef;
+    /* Un tono beige claro */
+    --color: #3a190e;
+    /* Un tono café oscuro para el texto */
+    margin-bottom: 0%;
+    margin-top: 1%;
+}
+
+.wood-tone-toolbar-bot {
+    --background: #3a1467;
+    /* Un tono beige medio */
+    --color: #ffffff;
+    /* Un tono café oscuro para el texto */
+}
+
+.wood-tone-toolbar-top {
+    --background: #3a1467;
+    /* Un tono beige medio */
+    --color: #ffffff;
+    /* Un tono café oscuro para el texto */
+}
+
+.wood-tone-card {
+    --background: #6f35bb;
+    /* Un tono beige medio */
+    --color: #ffffff;
+    /* Un tono café oscuro para el texto */
+    border-radius: 20px;
+}
+
+.wood-tone-button {
+    --background: #ed6a0b;
+    /* Un tono beige medio */
+    --color: #ffffff;
+    /* Un tono café oscuro para el texto */
+    display: block;
+    /* Hace que los botones sean bloques */
+    width: 140px;
+    /* Establece el ancho de los botones */
+    height: 12px;
+    /* Establece la altura de los botones */
+}
+label {
+    color: #000000;
+}
+.wood-button {
+    --background: #ed6a0b;
+    /* Un tono beige medio */
+    --color: #ffffff;
+    /* Un tono café oscuro para el texto */
+    display: block;
+    /* Hace que los botones sean bloques */
+    width: 60px;
+    /* Establece el ancho de los botones */
+    height: 10px;
+    /* Establece la altura de los botones */
+}
+
+.button-container {
+    display: flex;
+    /* Hace que ion-card-content sea un contenedor flex */
+    //margin-top: 8px;
+    justify-content: center;
+    /* Centra los botones horizontalmente */
+    align-items: center;
+    /* Centra los botones verticalmente */
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan en múltiples líneas si no hay suficiente espacio en una sola línea */
+}
+
+ion-fab-button {
+    --background: #8447d6;
+    --background-activated: #3A1467;
+    --background-hover: #5f3099;
+    --color: rgb(255, 255, 255);
+}
+
+ion-input {
+    --color: rgb(255, 255, 255);
+}
+
+.ion-icon-final {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(0, -50%);
+    width: 28px;
+    height: 28px;
+}

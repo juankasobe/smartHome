@@ -1,0 +1,240 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="wood-tone-toolbar-top">
+    <ion-title>
+      {{textoTitulo}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding wood-tone-content">
+  <label>{{textoLabel}}</label>
+  <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab-button>
+      <ion-icon name="chevron-down-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button>
+        <ion-icon name="add-circle-outline" routerLink="/focos"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="settings-outline" routerLink="/configuracion"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <div *ngIf="mostrarDomotica">
+    <ion-card class="wood-tone-card" *ngIf="foco1">
+      <ion-card-header>
+        <ion-card-title>Luz de Dormitorio</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="button-container">
+        <div class="button-container">
+          <img *ngIf="foco1ImagenEncendido" class="small-image" src="assets/imagenes/focoEncendido.png" />
+          <img *ngIf="foco1ImagenApagado" class="small-image" src="assets/imagenes/focoApagado.png" />
+        </div>
+        <div class="button-container">
+          Enciende o Apaga la luz de la dormitorio.
+          <div class="button-container">
+            <ion-button (click)="publishMessage('1', fieldNoti)" class="wood-tone-button" fill="clear"> Encender
+            </ion-button>
+            <ion-button (click)="publishMessage('0', fieldNoti)" class="wood-tone-button" fill="clear"> Apagar
+            </ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="foco2">
+      <img *ngIf="foco2ImagenEncendido" class="small-image" src="assets/imagenes/focoEncendido.png" />
+      <img *ngIf="foco2ImagenApagado" class="small-image" src="assets/imagenes/focoApagado.png" />
+      <ion-card-header>
+        <ion-card-title>Luz de Sala</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Enciende o Apaga la luz de la sala.
+        <div class="button-container">
+          <ion-button (click)="publishMessage('21', fieldNoti)" class="wood-tone-button" fill="clear">Encender</ion-button>
+          <ion-button (click)="publishMessage('20', fieldNoti)" class="wood-tone-button" fill="clear">Apagar</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="activarMusica=='1'">
+      <ion-card-header>
+        <ion-card-title>Música</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Elige entre las canciones.
+        <div class="button-container">
+          <ion-button (click)="publishMessage('13',fieldNoti)" class="wood-button" fill="clear">1</ion-button>
+          <ion-button (click)="publishMessage('14',fieldNoti)" class="wood-button" fill="clear">2</ion-button>
+          <ion-button (click)="publishMessage('15',fieldNoti)" class="wood-button" fill="clear">3</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="mostrarNotificaciones">
+    <ion-card class="wood-tone-card" *ngIf="audio=='1'">
+      <ion-card-header>
+        <ion-card-title>Notificaciones de Audio</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Enciende o Apaga las notificaciones de audio.
+        <div class="button-container">
+          <ion-button  class="wood-tone-button"
+            fill="clear">Activar</ion-button>
+          <ion-button  class="wood-tone-button"
+            fill="clear">Desactivar</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="sinNotificaciones">
+      <ion-card-header style="position: relative">
+        <ion-card-title>No hay Notificaciones</ion-card-title>
+        <ion-icon name="heart-circle-outline" routerLink="/configuracion" class="ion-icon-final"></ion-icon>
+      </ion-card-header>
+      <ion-card-content>
+        No existe ninguna notificacion. ¡Todo está bien!
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageBano">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Baño</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/bano6.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Se necesita ayuda para ir al baño.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageComer">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Comida</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/comer.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Tengo Hambre.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageSed">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Sed</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/sed.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Tengo Sed.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageTriste">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Tristeza</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/triste.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Estoy muy triste.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageEmergencia">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Emergencia</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/a.png" />
+      </ion-card-header>
+      <ion-card-content>
+        ¡Tengo una Emergencia!
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageMoverse">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Movimiento</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/a.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Necesito ayuda para moverme.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageAseo">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Aseo</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/a.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Necesito ayuda para asearme.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageMusica">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Música</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/a.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Quiero escuchar música.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageGradas">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Gradas</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/a.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Necesito ayuda con las gradas.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessagePanal">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Pañal</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/a.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Necesito ayuda con el pañal.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wood-tone-card" *ngIf="newMessageRopa">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Ropa</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/a.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Necesito ayuda con mi ropa.
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="wood-tone-card" *ngIf="newMessageDecibeles">
+      <ion-card-header style="position: relative">
+        <ion-card-title>Se escuchan Ruidos</ion-card-title>
+        <img class="small-image-ico" alt="Sala" src="assets/imagenes/a.png" />
+      </ion-card-header>
+      <ion-card-content>
+        Necesito ayuda.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar class="wood-tone-toolbar-bot" slot="bottom">
+        <ion-tab-button (click)="aparecerNotificaciones()">
+          <ion-icon name="notifications-outline" aria-hidden="true"></ion-icon>
+          <ion-label>Notificaciones</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="aparecerDomotica()">
+          <ion-icon name="bulb-outline" aria-hidden="true"></ion-icon>
+          <ion-label>Casa</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
